@@ -11,39 +11,48 @@ $result = $conn->query($query);
 <head>
     <meta charset="UTF-8">
     <title>Data Anggota</title>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
-    <h2>Daftar Anggota</h2>
+    <div class="container">
+        <h2>Daftar Anggota</h2>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'sukses') : ?>
-        <p style="color:green;">Data berhasil disimpan!</p>
-    <?php endif; ?>
+        <?php if (isset($_GET['status']) && $_GET['status'] == 'sukses') : ?>
+            <div class="status-success">Data berhasil disimpan!</div>
+        <?php endif; ?>
 
-    <a href="input_anggota.php">+ Tambah Anggota Baru</a>
-    <br><br>
+        <div class="form-actions">
+            <a href="input_anggota.php" class="btn-primary">+ Tambah Anggota Baru</a>
+        </div>
 
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>No</th>
-            <th>Nama Anggota</th>
-            <th>Aksi</th>
-        </tr>
-
-        <?php
-        $no = 1;
-        while ($row = $result->fetch_assoc()) :
-        ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><?= htmlspecialchars($row['nama']) ?></td>
-                <td>
-                    <a href="edit_anggota.php?id=<?= $row['id'] ?>">Edit</a> |
-                    <a href="hapus_anggota.php?id=<?= $row['id'] ?>" onclick="return confirm('Yakin mau hapus?')">Hapus</a>
-                </td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
+        <div class="table-responsive">
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Anggota</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    while ($row = $result->fetch_assoc()) :
+                    ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= htmlspecialchars($row['nama']) ?></td>
+                            <td>
+                                <a href="edit_anggota.php?id=<?= $row['id'] ?>" class="btn-secondary">Edit</a>
+                                <a href="hapus_anggota.php?id=<?= $row['id'] ?>" class="btn-secondary" onclick="return confirm('Yakin mau hapus?')">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         header("Location: data_pembayaran.php?status=sukses");
         exit;
     } else {
-        echo "Semua data harus diisi!";
+        echo "<div class='form-success-message'>Semua data harus diisi!</div>";
     }
 }
 ?>
@@ -34,29 +34,37 @@ if (isset($_POST['submit'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Pembayaran Kas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
-    <h2>Input Pembayaran Kas</h2>
+    <div class="payment-form-container">
+        <h2 class="payment-form-title">Input Pembayaran Kas</h2>
 
-    <form method="post" action="">
-        <label>Nama Anggota:</label><br>
-        <select name="id_anggota" required>
-            <option value="">--Pilih Anggota--</option>
-            <?php while ($row = $anggota->fetch_assoc()) : ?>
-                <option value="<?= $row['id'] ?>"><?= htmlspecialchars($row['nama']) ?></option>
-            <?php endwhile; ?>
-        </select><br><br>
+        <form method="post" action="" class="payment-form">
+            <div class="payment-form-group">
+                <label class="payment-form-label">Nama Anggota:</label>
+                <select name="id_anggota" class="payment-form-select" required>
+                    <option value="">--Pilih Anggota--</option>
+                    <?php while ($row = $anggota->fetch_assoc()) : ?>
+                        <option value="<?= $row['id'] ?>"><?= htmlspecialchars($row['nama']) ?></option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
 
-        <label>Jumlah Bayar (Rp):</label><br>
-        <input type="number" name="jumlah" value="<?= $jumlah_tarif ?>" required><br><br>
+            <div class="payment-form-group">
+                <label class="payment-form-label">Jumlah Bayar (Rp):</label>
+                <input type="number" name="jumlah" class="payment-form-input" value="<?= $jumlah_tarif ?>" required>
+            </div>
 
-        <button type="submit" name="submit">Simpan Pembayaran</button>
-    </form>
+            <button type="submit" name="submit" class="payment-submit-btn">Simpan Pembayaran</button>
+        </form>
 
-    <br>
-    <a href="data_pembayaran.php">Lihat Data Pembayaran</a>
+        <a href="data_pembayaran.php" class="payment-nav-link">Lihat Data Pembayaran</a>
+    </div>
 </body>
 
 </html>

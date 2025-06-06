@@ -1379,3 +1379,527 @@ body.form-page {
 .report-table tr:nth-child(10) {
     animation-delay: 0.55s;
 }
+
+/* ===== PRINT STYLES FOR LAPORAN SALDO ===== */
+/* Print-specific styles for cetak_laporan_saldo.php */
+.print-document {
+    font-family: 'Poppins', Arial, sans-serif;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.print-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #1e3c72;
+}
+
+.print-header h2 {
+    color: #1e3c72;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.print-header p {
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.print-table {
+    width: 70%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.15);
+    border: 2px solid rgba(30, 60, 114, 0.1);
+}
+
+.print-table th {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 18px 25px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.print-table th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.print-table th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.print-table td {
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(30, 60, 114, 0.1);
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.print-table tr:nth-child(even) {
+    background: rgba(30, 60, 114, 0.03);
+}
+
+.print-table tr:last-child td {
+    border-bottom: none;
+}
+
+.print-table tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+.print-table tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+/* Special styling for saldo row */
+.print-table tr:last-child th,
+.print-table tr:last-child td {
+    background: linear-gradient(135deg, #ffd700, #ffed4a);
+    color: #333;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.print-signature {
+    margin-top: 60px;
+    text-align: right;
+    margin-right: 80px;
+    color: #333;
+}
+
+.print-signature p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.print-signature u {
+    font-weight: 600;
+    color: #1e3c72;
+}
+
+.print-button-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.print-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.print-btn:hover::before {
+    left: 100%;
+}
+
+.print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(40, 167, 69, 0.4);
+    background: linear-gradient(135deg, #20c997, #17a2b8);
+}
+
+/* Print media query for cetak_laporan_saldo.php */
+@media print {
+    .print-document {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 20px !important;
+        margin: 0 !important;
+    }
+
+    .print-header h2 {
+        color: #1e3c72 !important;
+        background: none !important;
+        -webkit-text-fill-color: #1e3c72 !important;
+    }
+
+    .print-table th {
+        background: #1e3c72 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-table tr:last-child th,
+    .print-table tr:last-child td {
+        background: #ffd700 !important;
+        color: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .noprint {
+        display: none !important;
+    }
+}
+
+/* ===== PAYMENT INPUT FORM STYLES ===== */
+/* Styles for tambah_pembayaran.php */
+.payment-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.payment-form-title {
+    color: #1e3c72;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.payment-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #1e3c72;
+    font-size: 1rem;
+}
+
+.payment-form-select {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(30, 60, 114, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%231e3c72' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+.payment-form-select:focus {
+    outline: none;
+    border: 2px solid #2a5298;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(42, 82, 152, 0.2);
+    transform: translateY(-2px);
+}
+
+.payment-form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(30, 60, 114, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.payment-form-input:focus {
+    outline: none;
+    border: 2px solid #2a5298;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(42, 82, 152, 0.2);
+    transform: translateY(-2px);
+}
+
+.payment-submit-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.payment-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.payment-submit-btn:hover::before {
+    left: 100%;
+}
+
+.payment-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(30, 60, 114, 0.4);
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+}
+
+.payment-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1e3c72;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: rgba(30, 60, 114, 0.1);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.payment-nav-link:hover {
+    color: #2a5298;
+    background: rgba(30, 60, 114, 0.15);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.2);
+}
+
+/* ===== TRANSACTION FORM STYLES ===== */
+/* Styles for tambah_transaksi.php */
+.transaction-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.transaction-form-title {
+    color: #1e3c72;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.transaction-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-form-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    margin-right: 15px;
+    font-weight: 500;
+    color: #1e3c72;
+    font-size: 1rem;
+    min-width: 100px;
+}
+
+.transaction-form-input,
+.transaction-form-select,
+.transaction-form-textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(30, 60, 114, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.transaction-form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%231e3c72' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+.transaction-form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.transaction-form-input:focus,
+.transaction-form-select:focus,
+.transaction-form-textarea:focus {
+    outline: none;
+    border: 2px solid #2a5298;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(42, 82, 152, 0.2);
+    transform: translateY(-2px);
+}
+
+.transaction-submit-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.transaction-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.transaction-submit-btn:hover::before {
+    left: 100%;
+}
+
+.transaction-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(30, 60, 114, 0.4);
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+}
+
+/* Inline form layout for tambah_transaksi.php */
+.transaction-inline-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.transaction-inline-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.transaction-inline-group .transaction-form-label {
+    min-width: 120px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.transaction-inline-group .transaction-form-input,
+.transaction-inline-group .transaction-form-select,
+.transaction-inline-group .transaction-form-textarea {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Success message styling for forms */
+.form-success-message {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    font-weight: 500;
+    text-align: center;
+    animation: slideInUp 0.6s ease forwards;
+}
+
+/* STYLE.CSS - Central CSS for All Pages */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

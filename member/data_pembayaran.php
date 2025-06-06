@@ -1,7 +1,6 @@
 <?php
 require '../config/koneksi.php';
 
-// Ambil semua pembayaran
 $query = "SELECT kas.*, anggota.nama 
           FROM kas 
           LEFT JOIN anggota ON kas.id_anggota = anggota.id 
@@ -16,39 +15,49 @@ $result = $conn->query($query);
 <head>
     <meta charset="UTF-8">
     <title>Data Pembayaran Kas</title>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
-    <h2>Riwayat Pembayaran Kas</h2>
+    <div class="container">
+        <h2>Riwayat Pembayaran Kas</h2>
 
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'sukses') : ?>
-        <p style="color:green;">Pembayaran berhasil disimpan!</p>
-    <?php endif; ?>
+        <?php if (isset($_GET['status']) && $_GET['status'] == 'sukses') : ?>
+            <div class="status-success">Pembayaran berhasil disimpan!</div>
+        <?php endif; ?>
 
-    <a href="tambah_pembayaran.php">+ Tambah Pembayaran</a><br><br>
+        <div class="form-actions">
+            <a href="tambah_pembayaran.php" class="btn-primary">+ Tambah Pembayaran</a>
+        </div>
 
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>No</th>
-            <th>Nama Anggota</th>
-            <th>Tanggal</th>
-            <th>Jumlah</th>
-            <th>Keterangan</th>
-        </tr>
-
-        <?php
-        $no = 1;
-        while ($row = $result->fetch_assoc()) :
-        ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><?= htmlspecialchars($row['nama']) ?></td>
-                <td><?= date('d-m-Y', strtotime($row['tanggal'])) ?></td>
-                <td>Rp <?= number_format($row['jumlah'], 0, ',', '.') ?></td>
-                <td><?= htmlspecialchars($row['keterangan']) ?></td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
+        <div class="table-responsive">
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Anggota</th>
+                        <th>Tanggal</th>
+                        <th>Jumlah</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    while ($row = $result->fetch_assoc()) :
+                    ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= htmlspecialchars($row['nama']) ?></td>
+                            <td><?= date('d-m-Y', strtotime($row['tanggal'])) ?></td>
+                            <td>Rp <?= number_format($row['jumlah'], 0, ',', '.') ?></td>
+                            <td><?= htmlspecialchars($row['keterangan']) ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -29,86 +29,47 @@ $nama_bendahara = isset($_SESSION['user']['nama']) ? $_SESSION['user']['nama'] :
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cetak Laporan Saldo Kas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header {
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 50%;
-            margin: auto;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid #333;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .ttd {
-            margin-top: 50px;
-            text-align: right;
-            margin-right: 100px;
-        }
-
-        @media print {
-            .noprint {
-                display: none;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
+    <div class="print-document">
+        <div class="print-header">
+            <h2>Laporan Saldo Kas Kelas</h2>
+            <p>Tanggal Cetak: <?= $tanggal_cetak ?></p>
+        </div>
 
-    <div class="header">
-        <h2>Laporan Saldo Kas Kelas</h2>
-        <p>Tanggal Cetak: <?= $tanggal_cetak ?></p>
+        <table class="print-table">
+            <tr>
+                <th>Jenis</th>
+                <th>Jumlah (Rp)</th>
+            </tr>
+            <tr>
+                <td>Total Pemasukan</td>
+                <td><?= number_format($total_pemasukan, 0, ',', '.') ?></td>
+            </tr>
+            <tr>
+                <td>Total Pengeluaran</td>
+                <td><?= number_format($total_pengeluaran, 0, ',', '.') ?></td>
+            </tr>
+            <tr>
+                <th>Saldo Akhir</th>
+                <th><?= number_format($saldo, 0, ',', '.') ?></th>
+            </tr>
+        </table>
+
+        <div class="print-signature">
+            <p>Mengetahui,</p>
+            <p style="margin-top: 80px;"><u><?= htmlspecialchars($nama_bendahara) ?></u><br>Bendahara Kelas</p>
+        </div>
+
+        <div class="print-button-container noprint">
+            <button onclick="window.print()" class="print-btn">Cetak</button>
+        </div>
     </div>
-
-    <table>
-        <tr>
-            <th>Jenis</th>
-            <th>Jumlah (Rp)</th>
-        </tr>
-        <tr>
-            <td>Total Pemasukan</td>
-            <td><?= number_format($total_pemasukan, 0, ',', '.') ?></td>
-        </tr>
-        <tr>
-            <td>Total Pengeluaran</td>
-            <td><?= number_format($total_pengeluaran, 0, ',', '.') ?></td>
-        </tr>
-        <tr>
-            <th>Saldo Akhir</th>
-            <th><?= number_format($saldo, 0, ',', '.') ?></th>
-        </tr>
-    </table>
-
-    <div class="ttd">
-        <p>Mengetahui,</p>
-        <p style="margin-top: 80px;"><u><?= htmlspecialchars($nama_bendahara) ?></u><br>Bendahara Kelas</p>
-    </div>
-
-    <div class="noprint" style="margin-top: 30px;">
-        <button onclick="window.print()">Cetak</button>
-    </div>
-
 </body>
 
 </html>
