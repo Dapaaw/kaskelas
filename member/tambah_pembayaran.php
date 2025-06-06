@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config/koneksi.php';
+require '../config/koneksi.php';
 
 // Ambil daftar anggota
 $anggota = $conn->query("SELECT * FROM anggota ORDER BY nama ASC");

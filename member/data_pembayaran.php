@@ -1,5 +1,5 @@
 <?php
-require 'config/koneksi.php';
+require '../config/koneksi.php';
 
 // Ambil semua pembayaran
 $query = "SELECT kas.*, anggota.nama 

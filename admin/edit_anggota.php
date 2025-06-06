@@ -1,5 +1,5 @@
 <?php
-require 'config/koneksi.php';
+require '../config/koneksi.php';
 
 if (!isset($_GET['id'])) {
     header("Location: data_anggota.php");
@@ -35,17 +35,23 @@ $data = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>Edit Anggota</title>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
-    <h2>Edit Anggota</h2>
-    <form method="post" action="">
-        <label>Nama Anggota:</label><br>
-        <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']) ?>" required><br><br>
-        <button type="submit" name="submit">Update</button>
-    </form>
-    <br>
-    <a href="data_anggota.php">Kembali ke Data Anggota</a>
+    <div class="form-container">
+        <h2 class="form-title">Edit Anggota</h2>
+        <form method="post" action="">
+            <div class="form-group">
+                <label class="form-label">Nama Anggota:</label>
+                <input type="text" name="nama" class="form-control" value="<?= htmlspecialchars($data['nama']) ?>" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" name="submit" class="btn-primary">Update</button>
+                <a href="data_anggota.php" class="btn-secondary">Kembali ke Data Anggota</a>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

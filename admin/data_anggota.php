@@ -1,5 +1,5 @@
 <?php
-require 'config/koneksi.php';
+require '../config/koneksi.php';
 
 $query = "SELECT * FROM anggota ORDER BY id ASC";
 $result = $conn->query($query);

@@ -1,5 +1,5 @@
 <?php
-require 'config/koneksi.php';
+require '../config/koneksi.php';
 
 // Hitung total pemasukan
 $sql_pemasukan = "SELECT SUM(jumlah) AS total_pemasukan FROM kas WHERE jenis = 'pemasukan'";

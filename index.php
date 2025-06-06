@@ -3,54 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kas Kelas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-
-        h1 {
-            margin-bottom: 30px;
-        }
-
-        .menu {
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 10px;
-            display: inline-block;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        .menu a:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
+    <div class="index-container">
+        <h1 class="index-title">Selamat Datang di Sistem Kas Kelas</h1>
 
-    <h1>Selamat Datang di Sistem Kas Kelas</h1>
+        <div class="menu-buttons">
+            <a href="member/riwayat.php" class="menu-button">
+                <div class="menu-button-icon">
+                    <i data-feather="clock"></i>
+                </div>
+                Lihat Riwayat Kas
+            </a>
 
-    <div class="menu">
-        <a href="riwayat.php">Lihat Riwayat Kas</a>
-    </div>
-    <div class="menu">
-        <a href="laporan_saldo.php">Lihat Saldo Kas</a>
-    </div>
-    <div class="menu">
-        <a href="login.php">Login Bendahara</a>
+            <a href="reports/laporan_saldo.php" class="menu-button">
+                <div class="menu-button-icon">
+                    <i data-feather="bar-chart-2"></i>
+                </div>
+                Lihat Saldo Kas
+            </a>
+
+            <a href="auth/login.php" class="menu-button">
+                <div class="menu-button-icon">
+                    <i data-feather="log-in"></i>
+                </div>
+                Login Bendahara
+            </a>
+        </div>
     </div>
 
+    <script>
+        feather.replace();
+    </script>
 </body>
 
 </html>

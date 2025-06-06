@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config/koneksi.php';
+require '../config/koneksi.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -12,7 +12,7 @@ if ($result && $result->num_rows == 1) {
     $user = $result->fetch_assoc();
     if (password_verify($password, $user['password'])) {
         $_SESSION['user'] = $user;
-        header("Location: dashboard.php");
+        header("Location: ../admin/dashboard.php");
         exit;
     }
 }
