@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $user = 'root';
-$pass = ''; // Kosong jika tidak ada password
+$pass = ''; 
 $db   = 'kas_kelas';
 
 $conn = new mysqli($host, $user, $pass, $db, );

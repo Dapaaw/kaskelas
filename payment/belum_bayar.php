@@ -1,11 +1,9 @@
 <?php
 require '../config/koneksi.php';
 
-// Ambil bulan dan tahun sekarang
 $bulan = date('m');
 $tahun = date('Y');
 
-// Cari anggota yang belum membayar bulan ini
 $query = "
     SELECT a.id, a.nama
     FROM anggota a
@@ -53,7 +51,7 @@ $totalBelumBayar = $result->num_rows;
                 </thead>
                 <tbody>
                     <?php
-                    $result->data_seek(0); // Reset pointer hasil query
+                    $result->data_seek(0); 
                     $no = 1;
                     while ($row = $result->fetch_assoc()) :
                     ?>

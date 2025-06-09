@@ -2,7 +2,6 @@
 session_start();
 require '../config/koneksi.php';
 
-// Cek apakah user sudah login dan role = bendahara
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'bendahara') {
     header("Location: ../auth/login.php");
     exit;

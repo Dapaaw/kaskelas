@@ -24,7 +24,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Ambil data anggota lama
 $result = $conn->query("SELECT * FROM anggota WHERE id=$id");
 $data = $result->fetch_assoc();
 ?>

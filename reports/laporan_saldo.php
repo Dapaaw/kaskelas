@@ -1,11 +1,9 @@
 <?php
 require '../config/koneksi.php';
 
-// Ambil saldo semua anggota
 $query = "SELECT nama, saldo FROM anggota ORDER BY nama ASC";
 $result = $conn->query($query);
 
-// Hitung total saldo kas
 $query_total = "SELECT SUM(jumlah) AS total FROM kas WHERE jenis='pemasukan'";
 $result_total = $conn->query($query_total);
 $total = $result_total->fetch_assoc()['total'] ?? 0;

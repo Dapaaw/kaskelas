@@ -1,25 +1,20 @@
 <?php
 require '../config/koneksi.php';
 
-// Hitung total pemasukan
 $sql_pemasukan = "SELECT SUM(jumlah) AS total_pemasukan FROM kas WHERE jenis = 'pemasukan'";
 $result_pemasukan = $conn->query($sql_pemasukan);
 $row_pemasukan = $result_pemasukan->fetch_assoc();
 $total_pemasukan = $row_pemasukan['total_pemasukan'] ?? 0;
 
-// Hitung total pengeluaran
 $sql_pengeluaran = "SELECT SUM(jumlah) AS total_pengeluaran FROM kas WHERE jenis = 'pengeluaran'";
 $result_pengeluaran = $conn->query($sql_pengeluaran);
 $row_pengeluaran = $result_pengeluaran->fetch_assoc();
 $total_pengeluaran = $row_pengeluaran['total_pengeluaran'] ?? 0;
 
-// Hitung saldo akhir
 $saldo = $total_pemasukan - $total_pengeluaran;
 
-// Tanggal hari ini
 $tanggal_cetak = date('d-m-Y');
 
-// Nama bendahara dari session login
 session_start();
 $nama_bendahara = isset($_SESSION['user']['nama']) ? $_SESSION['user']['nama'] : 'Bendahara';
 ?>

@@ -2,13 +2,11 @@
 session_start();
 require '../config/koneksi.php';
 
-// Jika sudah login, langsung redirect ke dashboard
 if (isset($_SESSION['user'])) {
-    header("Location: ../admin/dashboard.php"); // Ubah ke halaman dashboard kamu
+    header("Location: ../admin/dashboard.php"); 
     exit;
 }
 
-// Proses login
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -22,7 +20,7 @@ if (isset($_POST['login'])) {
 
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user'] = $user;
-        header("Location: ../admin/dashboard.php"); // Ganti ke halaman dashboard setelah login
+        header("Location: ../admin/dashboard.php"); 
         exit;
     } else {
         $error = "Username atau Password salah!";

@@ -4,7 +4,6 @@ require '../config/koneksi.php';
 $sql = "SELECT kas.*, anggota.nama FROM kas LEFT JOIN anggota ON kas.id_anggota = anggota.id ORDER BY kas.tanggal DESC";
 $result = $conn->query($sql);
 
-// Hitung total pemasukan dan pengeluaran
 $query_pemasukan = "SELECT SUM(jumlah) AS total FROM kas WHERE jenis='pemasukan'";
 $query_pengeluaran = "SELECT SUM(jumlah) AS total FROM kas WHERE jenis='pengeluaran'";
 

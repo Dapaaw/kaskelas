@@ -1,4 +1,3 @@
-/* STYLE.CSS - Central CSS for All Pages */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -176,7 +175,6 @@ h2 {
     height: 18px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     body {
         padding: 15px;
@@ -220,7 +218,6 @@ h2 {
     }
 }
 
-/* Loading Animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -277,7 +274,6 @@ h2 {
     animation-delay: 1s;
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -296,7 +292,6 @@ h2 {
     background: linear-gradient(135deg, #2a5298, #ffd700);
 }
 
-/* ===== INDEX PAGE STYLES ===== */
 .index-container {
     max-width: 800px;
     margin: 0 auto;
@@ -388,7 +383,6 @@ h2 {
     stroke: #ffd700;
 }
 
-/* ===== LOGIN PAGE STYLES ===== */
 .login-container {
     max-width: 450px;
     margin: 0 auto;
@@ -510,7 +504,6 @@ h2 {
     font-weight: 500;
 }
 
-/* ===== RESPONSIVE DESIGN FOR INDEX & LOGIN ===== */
 @media (max-width: 768px) {
 
     .index-container,
@@ -561,7 +554,6 @@ h2 {
     }
 }
 
-/* ===== ANIMATION FOR INDEX & LOGIN ===== */
 @keyframes slideInUp {
     from {
         opacity: 0;
@@ -776,7 +768,6 @@ h2 {
     transform: translateX(-3px);
 }
 
-/* ===== RESPONSIVE DESIGN FOR FORM PAGES ===== */
 @media (max-width: 768px) {
     .form-container {
         padding: 30px 25px;
@@ -824,7 +815,6 @@ h2 {
     }
 }
 
-/* ===== PENGATURAN SPECIFIC STYLES ===== */
 .settings-info {
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
     border: 2px solid #90caf9;
@@ -855,7 +845,6 @@ h2 {
     padding-left: 50px;
 }
 
-/* ===== ADDITIONAL FORM STYLING ===== */
 .form-container form {
     margin-bottom: 0;
 }
@@ -914,7 +903,6 @@ input[type="submit"]:hover {
     background: linear-gradient(135deg, #2a5298, #1e3c72);
 }
 
-/* ===== OVERRIDE DEFAULT FORM ELEMENTS FOR CONSISTENCY ===== */
 label {
     display: block;
     margin-bottom: 8px;
@@ -923,7 +911,6 @@ label {
     font-size: 1rem;
 }
 
-/* ===== FORM PAGE SPECIFIC BODY STYLING ===== */
 body.form-page {
     display: flex;
     align-items: center;
@@ -937,7 +924,6 @@ body.form-page {
     max-width: 600px;
 }
 
-/* ===== STATUS MESSAGES ===== */
 .status-success {
     padding: 15px 20px;
     margin-bottom: 25px;
@@ -962,7 +948,6 @@ body.form-page {
     animation: slideInUp 0.6s ease forwards;
 }
 
-/* ===== UTILITY CLASSES ===== */
 .text-center {
     text-align: center;
 }
@@ -1163,7 +1148,6 @@ body.form-page {
     font-style: italic;
 }
 
-/* ===== PRINT MEDIA QUERIES ===== */
 @media print {
     body {
         background: white !important;
@@ -1207,7 +1191,6 @@ body.form-page {
     }
 }
 
-/* ===== RESPONSIVE DESIGN FOR REPORT PAGES ===== */
 @media (max-width: 768px) {
     .report-container {
         padding: 25px 20px;
@@ -1273,8 +1256,6 @@ body.form-page {
     }
 }
 
-/* ===== SPECIFIC STYLING FOR DIFFERENT REPORT TYPES ===== */
-/* Laporan Saldo Specific */
 .saldo-positive {
     color: #28a745;
     font-weight: 600;
@@ -1290,7 +1271,6 @@ body.form-page {
     font-weight: 600;
 }
 
-/* Belum Bayar Specific */
 .unpaid-warning {
     background: linear-gradient(135deg, #fff3cd, #ffeaa7);
     border: 2px solid #ffeaa7;
@@ -1302,7 +1282,6 @@ body.form-page {
     font-weight: 500;
 }
 
-/* Riwayat Specific */
 .jenis-pemasukan {
     background: linear-gradient(135deg, #d4edda, #c3e6cb);
     color: #155724;
@@ -1323,7 +1302,6 @@ body.form-page {
     display: inline-block;
 }
 
-/* ===== ANIMATION FOR REPORT TABLES ===== */
 @keyframes fadeInRow {
     from {
         opacity: 0;
@@ -1380,8 +1358,6 @@ body.form-page {
     animation-delay: 0.55s;
 }
 
-/* ===== PRINT STYLES FOR LAPORAN SALDO ===== */
-/* Print-specific styles for cetak_laporan_saldo.php */
 .print-document {
     font-family: 'Poppins', Arial, sans-serif;
     padding: 30px;
@@ -1471,7 +1447,6 @@ body.form-page {
     border-bottom-right-radius: 15px;
 }
 
-/* Special styling for saldo row */
 .print-table tr:last-child th,
 .print-table tr:last-child td {
     background: linear-gradient(135deg, #ffd700, #ffed4a);
@@ -1543,7 +1518,6 @@ body.form-page {
     background: linear-gradient(135deg, #20c997, #17a2b8);
 }
 
-/* Print media query for cetak_laporan_saldo.php */
 @media print {
     .print-document {
         box-shadow: none !important;
@@ -1578,8 +1552,6 @@ body.form-page {
     }
 }
 
-/* ===== PAYMENT INPUT FORM STYLES ===== */
-/* Styles for tambah_pembayaran.php */
 .payment-form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -1731,8 +1703,6 @@ body.form-page {
     box-shadow: 0 5px 15px rgba(30, 60, 114, 0.2);
 }
 
-/* ===== TRANSACTION FORM STYLES ===== */
-/* Styles for tambah_transaksi.php */
 .transaction-form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -1855,7 +1825,6 @@ body.form-page {
     background: linear-gradient(135deg, #2a5298, #1e3c72);
 }
 
-/* Inline form layout for tambah_transaksi.php */
 .transaction-inline-form {
     display: flex;
     flex-direction: column;
@@ -1882,7 +1851,6 @@ body.form-page {
     min-width: 200px;
 }
 
-/* Success message styling for forms */
 .form-success-message {
     padding: 15px 20px;
     margin-bottom: 25px;

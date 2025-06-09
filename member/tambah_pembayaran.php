@@ -2,23 +2,18 @@
 session_start();
 require '../config/koneksi.php';
 
-// Ambil daftar anggota
 $anggota = $conn->query("SELECT * FROM anggota ORDER BY nama ASC");
 
-// Ambil tarif kas
 $tarif = $conn->query("SELECT * FROM pengaturan LIMIT 1")->fetch_assoc();
 $jumlah_tarif = $tarif ? $tarif['jumlah_tarif'] : 0;
 
-// Proses form pembayaran
 if (isset($_POST['submit'])) {
     $id_anggota = $_POST['id_anggota'];
     $jumlah = $_POST['jumlah'];
     $tanggal = date('Y-m-d');
 
     if (!empty($id_anggota) && !empty($jumlah)) {
-        // Insert ke kas
         $conn->query("INSERT INTO kas (tanggal, jenis, keterangan, jumlah, id_anggota) VALUES ('$tanggal', 'pemasukan', 'Pembayaran kas', '$jumlah', '$id_anggota')");
-        // Update saldo anggota
         $conn->query("UPDATE anggota SET saldo = saldo + $jumlah WHERE id = $id_anggota");
 
         header("Location: data_pembayaran.php?status=sukses");
